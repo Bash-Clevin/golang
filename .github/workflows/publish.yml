@@ -1,0 +1,25 @@
+name: Build image and publish
+
+on:
+  push:
+    branches:
+      - develop
+      - main
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v3
+      - name: Build Image
+        run: docker build . --tag go-test-image:$(date +%s)
+
+      - name: Publish Image
+        uses: elgohr/Publish-Docker-Github-Action@v5
+        with:
+          name: clevinbash/go-github-test
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+
+
