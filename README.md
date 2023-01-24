@@ -1,4 +1,4 @@
-## Golang GIthub Actions
+## Golang Github Actions
 Sample project implemeting gitlab actions in GO <br>
 ![Go github Action flow](resources/images/goGitlabActions.png)
 
